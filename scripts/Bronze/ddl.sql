@@ -88,3 +88,18 @@ CREATE TABLE bronze.erp_px_cat_g1v2 (
     maintenance  NVARCHAR(50)
 );
 GO
+
+
+IF OBJECT_ID('dbo.batch_log_table', 'U') IS NOT NULL
+    DROP TABLE dbo.batch_log_table;
+GO
+
+
+CREATE TABLE dbo.batch_log_table (
+    batch_start_time DATETIME,
+    batch_end_time DATETIME,
+    batch_load_time INT,
+    message NVARCHAR(MAX),
+    status NVARCHAR(MAX)
+);
+GO
